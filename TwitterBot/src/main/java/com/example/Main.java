@@ -7,7 +7,7 @@ import twitter4j.TwitterFactory;
 import java.io.*;
 import java.nio.charset.Charset;
 
-public class RubaBot {
+public class Main {
 
     public static void main(String[] args) {
         tweetQuotes();
@@ -16,7 +16,7 @@ public class RubaBot {
     private static void tweetQuotes() {
         String line;
         try {
-                InputStream fis = new FileInputStream("/Users/ruban/Downloads/ruban_project/projects/chatbot/untitled/src/main/resources/tweets.txt");
+                InputStream fis = new FileInputStream("C:/Users/ayoon/projects/TwitterBot/src/main/resources/tweets.txt");
                 InputStreamReader isr = new InputStreamReader(fis, Charset.forName("Cp1252"));
                 BufferedReader br = new BufferedReader(isr);
 
