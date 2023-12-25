@@ -20,18 +20,39 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version> <!-- Update the plugin version if necessary -->
                 <configuration>
-                    <source>20</source>
-                    <target>20</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>org.twitter4j</groupId>
-            <artifactId>twitter4j-core</artifactId>
-            <version>3.0.0</version>
-        </dependency>
+    
+      <dependency>
+         <groupId>com.twitter</groupId>
+         <artifactId>twitter-api-java-sdk</artifactId>
+         <version>2.0.3</version> 
+      </dependency>
+
+      <dependency>
+         <groupId>commons-codec</groupId>
+         <artifactId>commons-codec</artifactId>
+         <version>1.15</version> <!-- or the latest version available -->
+      </dependency>
+
+      <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>oauth2-oidc-sdk</artifactId>
+                <version>8.28.2</version> <!-- Use the latest version -->
+      </dependency>
+
+    
+      <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.9.3</version> <!-- Check for the latest version on Maven Central -->
+      </dependency>
+
     </dependencies>
 </project>
