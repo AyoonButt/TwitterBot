@@ -18,13 +18,13 @@ jobs:
         distribution: 'adopt'
         java-version: 17
     - name: Build with Maven
-      run: mvn -B package --file TwitterBot/TwitterBot/pom.xml
+      run: mvn -B package --file /pom.xml
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: TwitterBot/TwitterBot/target/*.jar
+        path: /target/*.jar
 
   deploy:
     runs-on: ubuntu-latest
