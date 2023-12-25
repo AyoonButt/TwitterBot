@@ -11,12 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: 17
+
     - name: Build with Maven
       run: mvn -B package --file TwitterBot/pom.xml
 
@@ -31,7 +34,6 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
@@ -40,10 +42,10 @@ jobs:
           name: java-app
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: Azure/webapps-deploy@v2
         with:
           app-name: 'TwitterBot-AyoonButt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: 'java-app/*.jar'
+
