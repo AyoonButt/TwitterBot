@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: TwitterBot/target/*.jar
+        path: TwitterBot/target/demo-1.0-SNAPSHOT.jar
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
           name: java-app
 
       - name: List contents of the artifact
-        run: ls -R java-app
+        run: ls -R ${{ github.workspace }}/java-app
 
       - name: Deploy to Azure Web App
         uses: Azure/webapps-deploy@v2
@@ -53,4 +53,5 @@ jobs:
           app-name: 'TwitterBot-AyoonButt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: 'java-app/TwitterBot/target/demo-1.0-SNAPSHOT.jar'
+          package: 'java-app/demo-1.0-SNAPSHOT.jar'
+
