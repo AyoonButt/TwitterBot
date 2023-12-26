@@ -43,9 +43,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: java-app
-
-      - name: List contents of the artifact
-        run: ls -R ${{ github.workspace }}/java-app
+          path: TwitterBot/target/*.jar
 
       - name: Deploy to Azure Web App
         uses: Azure/webapps-deploy@v2
