@@ -45,9 +45,6 @@ jobs:
           with:
             name: java-app
     
-        - name: List contents of the artifact
-          run: ls -R java-app
-    
         - name: Deploy to Azure Web App
           uses: Azure/webapps-deploy@v2
           with:
