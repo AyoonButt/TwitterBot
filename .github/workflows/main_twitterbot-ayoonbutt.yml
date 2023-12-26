@@ -44,11 +44,14 @@ jobs:
         with:
           name: java-app
 
+      - name: List contents of the artifact
+        run: ls -R ${{ github.workspace }}/java-app
+
       - name: Deploy to Azure Web App
         uses: Azure/webapps-deploy@v2
         with:
           app-name: 'TwitterBot-AyoonButt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package:  TwitterBot/target/*.jar
+          package: '${{ github.workspace }}/java-app/demo-1.0-SNAPSHOT.jar'
 
