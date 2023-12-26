@@ -32,6 +32,7 @@ jobs:
         name: java-app
         path: TwitterBot/target/*.jar
         
+        
   deploy:
       runs-on: ubuntu-latest
       needs: build
@@ -44,6 +45,9 @@ jobs:
           with:
             name: java-app
     
+        - name: List contents of the artifact
+          run: ls -R java-app
+    
         - name: Deploy to Azure Web App
           uses: Azure/webapps-deploy@v2
           with:
@@ -51,4 +55,3 @@ jobs:
             slot-name: 'Production'
             publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
             package: 'java-app/TwitterBot/target/demo-1.0-SNAPSHOT.jar'
-    
