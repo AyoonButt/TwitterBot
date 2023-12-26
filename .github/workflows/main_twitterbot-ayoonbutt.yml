@@ -1,5 +1,4 @@
 name: Build and deploy JAR app to Azure Web App - TwitterBot-AyoonButt
-name: Build and deploy JAR app to Azure Web App - TwitterBot-AyoonButt
 
 on:
   push:
