@@ -44,6 +44,10 @@ jobs:
         with:
           name: java-app
 
+      - name: List downloaded artifact
+        run: ls -l ${{ github.workspace }}/target/*.jar
+
+
       - name: Deploy to Azure Web App
         uses: Azure/webapps-deploy@v2
         with:
