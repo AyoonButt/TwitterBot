@@ -50,9 +50,4 @@ jobs:
           app-name: 'TwitterBot-AyoonButt'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ${{ github.workspace }}/*.jar
-
-
-
-
-
+          package: 'java-app/**/*.jar'
