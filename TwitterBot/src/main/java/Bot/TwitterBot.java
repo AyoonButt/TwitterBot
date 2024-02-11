@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+
 public class TwitterBot {
 
     private TwitterApi apiInstanceJava;
@@ -80,14 +81,30 @@ public class TwitterBot {
                 .build(new CustomTwitterApi20());
  
         // Redirect the user to the authorization URL
-        String authorizationUrl = oauth20Service.getAuthorizationUrl();
-        System.out.println("Authorization URL: " + authorizationUrl);
-
-        // Here, you would typically direct the user to the authorization URL (e.g., by opening a browser)
-        // and wait for the user to grant permission. The authorization code will be received on the callback.
-
+        String authorizationUrl = "https://ayoonbutt.github.io" ;
+        
+    
+        // Open the browser for user interaction
+        openAuthorizationUrlManually(authorizationUrl);
+    
+        // Simulate waiting for user interaction (you might need to implement this differently)
+        waitForUserInteraction();
         // Once authorization code is received, call authenticateOAuth2 with the stored authorization code
         authenticateOAuth2("your_client_id", "your_client_secret", authorizationCodeReceived);
+    }
+    
+
+    private void openAuthorizationUrlManually(String authorizationUrl) {
+        System.out.println("Please open the following URL in your web browser to authorize: " + authorizationUrl);
+    }
+
+    private void waitForUserInteraction() {
+        // Simulate waiting for user interaction (you might need to implement this differently)
+        try {
+            Thread.sleep(30000); // Simulate waiting for 30 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void authenticateOAuth2(String clientId, String clientSecret, String authorizationCode) {
